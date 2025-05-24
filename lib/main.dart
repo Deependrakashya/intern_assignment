@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:intern_project/core/app_contants.dart';
 import 'package:intern_project/view/bottom_nav_s.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:intern_project/viewModel/home/home_view_model.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
@@ -16,7 +18,14 @@ void main() async {
     ),
   );
   await Firebase.initializeApp();
-  runApp(const MyApp());
+
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => HomeProvider())],
+
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
