@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intern_project/core/app_contants.dart';
+import 'package:intern_project/utils/app_colors.dart';
 import 'package:intern_project/view/home/home_screen.dart';
 import 'package:sizer/sizer.dart';
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:intern_project/core/app_contants.dart';
+import 'package:intern_project/utils/app_colors.dart';
 import 'package:sizer/sizer.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class HomeWidget {
   static Widget TextInputField() {
@@ -17,7 +18,7 @@ class HomeWidget {
           SizedBox(width: 4.w),
           Expanded(
             child: TextField(
-              style: TextStyle(color: AppContants.textWhiteColor),
+              style: TextStyle(color: AppColors.textWhiteColor),
               decoration: InputDecoration(
                 hintText: '''Search “Punjabi Lyrics”''',
                 hintStyle: TextStyle(
@@ -48,15 +49,16 @@ class HomeWidget {
     required String title,
     required String description,
     required String imgUrl,
+    required String iconUrl,
   }) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: .7.h),
-      height: 10.h,
+      height: 9.h,
       width: 100.w,
       decoration: BoxDecoration(
         image: DecorationImage(
           opacity: 0.099,
-          image: AssetImage(imgUrl), // Local asset
+          image: NetworkImage(imgUrl), // Local asset
           fit: BoxFit.cover, // Can be BoxFit.fill, contain, etc.
         ),
         borderRadius: BorderRadius.circular(18.sp),
@@ -73,12 +75,10 @@ class HomeWidget {
                   padding: EdgeInsets.all(14.sp),
                   margin: EdgeInsets.all(14.sp),
                   decoration: BoxDecoration(
-                    color: AppContants.appBgColor,
+                    color: AppColors.appBgColor,
                     borderRadius: BorderRadius.circular(15.sp),
                   ),
-                  child: Image.asset(
-                    "assets/icons/tiles_icons/writing_leaf.png",
-                  ),
+                  child: Image.network(iconUrl),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -87,7 +87,7 @@ class HomeWidget {
                     Text(
                       title,
                       style: TextStyle(
-                        color: AppContants.textWhiteColor,
+                        color: AppColors.textWhiteColor,
                         fontSize: 18.sp,
                         fontWeight: FontWeight.w700,
                       ),
@@ -95,7 +95,7 @@ class HomeWidget {
                     Text(
                       description,
                       style: TextStyle(
-                        color: AppContants.textWhiteColor,
+                        color: AppColors.textWhiteColor,
                         fontSize: 15.sp,
                       ),
                     ),
@@ -105,7 +105,11 @@ class HomeWidget {
             ),
           ),
           Container(
-            child: Image.asset("assets/icons/tiles_icons/arrow_right.png"),
+            margin: EdgeInsets.only(right: 4.w),
+            child: Image.asset(
+              "assets/icons/tiles_icons/arrow_right.png",
+              height: 2.5.h,
+            ),
           ),
         ],
       ),

@@ -1,56 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intern_project/core/app_contants.dart';
+import 'package:intern_project/utils/app_colors.dart';
+import 'package:intern_project/utils/constants.dart';
+import 'package:intern_project/utils/provider/provider.dart';
 import 'package:intern_project/view/bottom_nav_s.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:intern_project/viewModel/home/home_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
-      systemNavigationBarColor: AppContants.appBgColor,
-      systemNavigationBarIconBrightness: Brightness.light, // icons color
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.light,
-    ),
-  );
-  await Firebase.initializeApp();
+  // Initialize the required things
+  await _init();
 
-  runApp(
-    MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => HomeProvider())],
-
-      child: MyApp(),
-    ),
-  );
+  // Run the app
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Sizer(
       builder: (context, orientation, screenType) {
-        return MaterialApp(
-          title: 'Internship Assignment',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            fontFamily: 'Syne',
-            scaffoldBackgroundColor: Color(0xff18171c),
-            bottomNavigationBarTheme: BottomNavigationBarThemeData(
-              backgroundColor: Color(0xff18171c),
+        return MultiProvider(
+          providers: ProviderList.providers,
+          child: MaterialApp(
+            title: Constants.appName,
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              scaffoldBackgroundColor: Color(0xff18171c),
+              bottomNavigationBarTheme: BottomNavigationBarThemeData(
+                backgroundColor: Color(0xff18171c),
+              ),
+              textTheme: TextTheme(),
             ),
-            textTheme: TextTheme(),
+            home: BottomNav(),
           ),
-
-          home: BottomNav(),
         );
       },
     );
   }
+}
+
+Future<void> _init() async {
+  // Ensure that framework is initialized before running the app
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Set the overlay style for the system UI
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      systemNavigationBarColor: AppColors.appBgColor,
+      systemNavigationBarIconBrightness: Brightness.light, // icons color
+      statusBarColor: AppColors.transparentColor,
+      statusBarIconBrightness: Brightness.light,
+    ),
+  );
+
+  // Set the orientation to portrait only
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  // Initialize Firebase
+  await Firebase.initializeApp();
 }
