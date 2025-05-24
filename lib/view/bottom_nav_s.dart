@@ -26,8 +26,8 @@ class _BottomNavState extends State<BottomNav> {
   final List<String> _icons = [
     "assets/icons/bottomNavIcons/home.png",
     "assets/icons/bottomNavIcons/news.png",
-    "assets/icons/bottomNavIcons/projects.png",
     "assets/icons/bottomNavIcons/trackBox.png",
+    "assets/icons/bottomNavIcons/projects.png",
   ];
 
   @override

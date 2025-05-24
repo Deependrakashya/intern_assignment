@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, screenType) {
         return MaterialApp(
           title: 'Internship Assignment',
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             fontFamily: 'Syne',
             scaffoldBackgroundColor: Color(0xff18171c),

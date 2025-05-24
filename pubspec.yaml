@@ -64,6 +64,9 @@ flutter:
   assets:
     - "assets/tilesBgImage/"
     - "assets/icons/bottomNavIcons/"
+    - "assets/icons/home/"
+    - "assets/icons/tiles_icons/"
+    - "assets/images/home/"
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
