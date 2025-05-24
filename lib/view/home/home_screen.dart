@@ -1,10 +1,12 @@
 import 'dart:developer';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intern_project/utils/app_colors.dart';
 import 'package:intern_project/model/music_services_model.dart';
 import 'package:intern_project/repo/firestore_services.dart';
 import 'package:intern_project/view/home/home_widget.dart';
+import 'package:intern_project/view/new_screen.dart/new_screen.dart';
 import 'package:intern_project/viewModel/home/home_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -177,11 +179,26 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         )
-                        : HomeWidget.ListTile(
-                          title: musicServices[index].title.toString(),
-                          description: musicServices[index].subTitle.toString(),
-                          imgUrl: musicServices[index].imgUrl.toString(),
-                          iconUrl: musicServices[index].iconUrl.toString(),
+                        : GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                builder:
+                                    (context) => NewScreen(
+                                      lastScreenName:
+                                          musicServices[index].title.toString(),
+                                    ),
+                              ),
+                            );
+                          },
+                          child: HomeWidget.ListTile(
+                            title: musicServices[index].title.toString(),
+                            description:
+                                musicServices[index].subTitle.toString(),
+                            imgUrl: musicServices[index].imgUrl.toString(),
+                            iconUrl: musicServices[index].iconUrl.toString(),
+                          ),
                         );
                   },
                 ),

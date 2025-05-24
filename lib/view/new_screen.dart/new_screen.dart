@@ -7,7 +7,12 @@ class NewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("You tapped on: $lastScreenName")),
+      body: Center(
+        child: Text(
+          "You tapped on: $lastScreenName",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
     );
   }
 }

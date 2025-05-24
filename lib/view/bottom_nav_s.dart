@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intern_project/utils/app_colors.dart';
 import 'package:intern_project/view/home/home_screen.dart';
+import 'package:intern_project/view/news/news_screen.dart';
+import 'package:intern_project/view/projects/project_screen.dart';
+import 'package:intern_project/view/track_box/track_box_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class BottomNav extends StatefulWidget {
@@ -13,13 +16,9 @@ class BottomNav extends StatefulWidget {
 class _BottomNavState extends State<BottomNav> {
   List<Widget> screens = [
     HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    NewsScreen(),
+    TrackBoxScreen(),
+    ProjectScreen(),
   ];
   int selectedIndex = 0;
   final List<String> _labels = ['Home', 'News', 'TrackBox', 'Projects'];
