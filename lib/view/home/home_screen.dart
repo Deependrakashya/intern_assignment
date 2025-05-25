@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               duration: Duration(seconds: 1),
                             ),
                             child: Container(
-                              margin: EdgeInsets.symmetric(horizontal: 2.w),
+                              margin: EdgeInsets.symmetric(horizontal: 5.w),
                               child: Card(
                                 color: const Color.fromARGB(255, 44, 44, 44),
                                 child: ListTile(

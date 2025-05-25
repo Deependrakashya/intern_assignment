@@ -55,7 +55,7 @@ class HomeWidget {
     required bool isTablet,
   }) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: .7.h),
+      margin: EdgeInsets.symmetric(horizontal: 5.4.w, vertical: .7.h),
       height: isTablet ? 17.h : 9.h,
       width: 100.w,
       decoration: BoxDecoration(
@@ -65,7 +65,7 @@ class HomeWidget {
           fit: BoxFit.cover, // Can be BoxFit.fill, contain, etc.
         ),
         borderRadius: BorderRadius.circular(18.sp),
-        border: Border.all(color: const Color.fromARGB(167, 63, 63, 63)),
+        border: Border.all(color: const Color.fromARGB(167, 49, 49, 49)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -83,26 +83,32 @@ class HomeWidget {
                   ),
                   child: Image.network(iconUrl),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                        color: AppColors.textWhiteColor,
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w700,
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: AppColors.textWhiteColor,
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
-                    ),
-                    Text(
-                      description,
-                      style: TextStyle(
-                        color: AppColors.textWhiteColor,
-                        fontSize: 15.sp,
+                      Text(
+                        description,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: AppColors.textWhiteColor,
+                          fontSize: 15.sp,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -111,7 +117,7 @@ class HomeWidget {
             margin: EdgeInsets.only(right: 4.w),
             child: Image.asset(
               "assets/icons/tiles_icons/arrow_right.png",
-              height: 2.5.h,
+              height: 1.5.h,
             ),
           ),
         ],
