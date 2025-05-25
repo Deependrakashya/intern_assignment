@@ -22,7 +22,7 @@ To demonstrate:
 
 ## 📲 Download App
 
-[🔗 Click here to download the APK]([https://github.com/Deependrakashya/intern_assignment/releases/download/releases/app-release.apk])  
+[🔗 Click here to download the APK](https://github.com/Deependrakashya/intern_assignment/releases/download/releases/app-release.apk)  
 > _Test the app directly on your Android device._
 
 ## 🔧 Setup
