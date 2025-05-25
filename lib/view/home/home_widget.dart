@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intern_project/utils/app_colors.dart';
@@ -50,11 +52,11 @@ class HomeWidget {
     required String description,
     required String imgUrl,
     required String iconUrl,
-    required bool isTablet
+    required bool isTablet,
   }) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: .7.h),
-      height:isTablet ? 17.h :9.h,
+      height: isTablet ? 17.h : 9.h,
       width: 100.w,
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -114,6 +116,108 @@ class HomeWidget {
           ),
         ],
       ),
+    );
+  }
+
+  static Widget TopBgUI({required bool isTablet}) {
+    return Stack(
+      children: [
+        // bg of the top panel
+        Container(
+          height: isTablet ? 50.h : 40.h,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFFa90140), Color(0xFF610024)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(24),
+              bottomRight: Radius.circular(24),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 0.h,
+          left: isTablet ? -5.2.w : -7.w,
+          child: Image.asset(
+            "assets/images/home/circular_.png",
+            width: isTablet ? 20.w : 30.w,
+          ),
+        ),
+        Positioned(
+          bottom: 0,
+          right: isTablet ? -6.2.w : -10.w,
+          child: Image.asset(
+            "assets/images/home/piono.png",
+            width: isTablet ? 20.w : 35.w,
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 7.h),
+          padding: EdgeInsets.symmetric(horizontal: 4.w),
+          child: Column(
+            children: [
+              // top bar with textInput and circular Avataar
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child:
+                        // Text Input UI
+                        HomeWidget.TextInputField(),
+                  ),
+                  // avatar icon
+                  Container(
+                    margin: EdgeInsets.only(left: 3.5.w),
+                    child: Image.asset(
+                      "assets/icons/home/avatar.png",
+                      height: 24.sp,
+                    ),
+                  ),
+                ],
+              ),
+
+              // Text on Top panel
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: 6.h),
+
+                  Text(
+                    "Free Demo",
+                    style: TextStyle(
+                      fontSize: 28.sp,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Lobster',
+                      color: AppColors.textWhiteColor,
+                    ),
+                  ),
+                  Text(
+                    "for custom Music Production",
+                    style: TextStyle(
+                      fontSize: 17.sp,
+                      color: AppColors.textWhiteColor,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+          top: isTablet ? 19.h : 17.h,
+          left: isTablet ? 43.w : 37.w,
+          child: Text(
+            "Claim your",
+            style: TextStyle(
+              fontSize: 18.sp,
+              fontWeight: FontWeight.w700,
+              color: AppColors.textWhiteColor,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

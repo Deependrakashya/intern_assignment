@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intern_project/repo/locator.dart';
 import 'package:intern_project/utils/app_colors.dart';
 import 'package:intern_project/utils/constants.dart';
 import 'package:intern_project/utils/provider/provider.dart';
@@ -65,4 +66,7 @@ Future<void> _init() async {
 
   // Initialize Firebase
   await Firebase.initializeApp();
+
+  // Register dependencies
+  setupLocator();
 }

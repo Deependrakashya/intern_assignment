@@ -7,7 +7,7 @@ import 'package:intern_project/model/music_services_model.dart';
 import 'package:intern_project/repo/firestore_services.dart';
 import 'package:intern_project/view/home/home_widget.dart';
 import 'package:intern_project/view/new_screen.dart/new_screen.dart';
-import 'package:intern_project/viewModel/home/home_provider.dart';
+import 'package:intern_project/viewModel/home/home_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -40,106 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
             physics: NeverScrollableScrollPhysics(),
             child: Column(
               children: [
-                Stack(
-                  children: [
-                    // bg of the top panel
-                    Container(
-                      height: isTablet ? 50.h : 40.h,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Color(0xFFa90140), Color(0xFF610024)],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                        ),
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(24),
-                          bottomRight: Radius.circular(24),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 0.h,
-                      left: isTablet ? -2.2.w : -7.w,
-                      child: Container(
-                        height: 15.h,
-                        child: Image.asset("assets/images/home/circular_.png"),
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      right: isTablet ? -2.2.w : -10.w,
-                      child: Container(
-                        height: 15.h,
-
-                        child: Image.asset("assets/images/home/piono.png"),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 7.h),
-                      padding: EdgeInsets.symmetric(horizontal: 4.w),
-                      child: Column(
-                        children: [
-                          // top bar with textInput and circular Avataar
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child:
-                                    // Text Input UI
-                                    HomeWidget.TextInputField(),
-                              ),
-                              // avatar icon
-                              Container(
-                                margin: EdgeInsets.only(left: 3.5.w),
-                                child: Image.asset(
-                                  "assets/icons/home/avatar.png",
-                                  height: 24.sp,
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          // Text on Top panel
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(height: 6.h),
-
-                              Text(
-                                "Free Demo",
-                                style: TextStyle(
-                                  fontSize: 28.sp,
-                                  fontWeight: FontWeight.w700,
-                                  fontFamily: 'Lobster',
-                                  color: AppColors.textWhiteColor,
-                                ),
-                              ),
-                              Text(
-                                "for custom Music Production",
-                                style: TextStyle(
-                                  fontSize: 17.sp,
-                                  color: AppColors.textWhiteColor,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    Positioned(
-                      top: isTablet ? 19.h : 17.h,
-                      left: isTablet ? 43.w : 37.w,
-                      child: Text(
-                        "Claim your",
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.textWhiteColor,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                //  Top Panel Ui
+                HomeWidget.TopBgUI(isTablet: isTablet),
+                // middle text
                 Container(
                   margin: EdgeInsets.only(top: 2.h, bottom: 2.h),
                   child: Text(
@@ -147,6 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(color: AppColors.textWhiteColor),
                   ),
                 ),
+
+                // displaying Music services from firestore
                 Container(
                   height: isTablet ? 33.h : 45.h,
                   child: ListView.builder(
@@ -158,7 +63,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (context, index) {
                       var musicServices = provider.musicServices;
                       return provider.isLoading
-                          ? Skeletonizer(
+                          ?
+                          // show loading skeleton when data is coming from firestore
+                          Skeletonizer(
                             effect: ShimmerEffect(
                               // customize shimmer style
                               baseColor: Colors.grey.shade300,
@@ -196,8 +103,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                           )
-                          : GestureDetector(
+                          :
+                          // showing actual tiles when the data fetched form firestore
+                          GestureDetector(
                             onTap: () {
+                              // Navigating to New screen page with sending title of Tile which is pressed
                               Navigator.push(
                                 context,
                                 CupertinoPageRoute(
@@ -210,6 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               );
                             },
+                            // custom list tile for Music services
                             child: HomeWidget.ListTile(
                               title: musicServices[index].title.toString(),
                               description:

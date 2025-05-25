@@ -62,8 +62,7 @@ class _BottomNavState extends State<BottomNav> {
                   // white dot when the selected icon tapped
                   AnimatedContainer(
                     duration: Duration(milliseconds: 300),
-                    height: 1.1.h,
-
+                    height: isTablet ? 1.1.h : 0.8.h,
                     width: isSelected ? 15.sp : 0,
                     decoration: BoxDecoration(
                       color: isSelected ? Colors.white : Colors.transparent,
@@ -78,7 +77,6 @@ class _BottomNavState extends State<BottomNav> {
                   Image.asset(
                     _icons[index],
                     color: isSelected ? Colors.white : Colors.grey,
-
                     height: 24,
                   ),
                   // tab label
