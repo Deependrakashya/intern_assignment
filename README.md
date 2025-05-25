@@ -1,16 +1,34 @@
-# intern_project
+# 🎵 S.Rocks Music UI Clone
 
-A new Flutter project.
+This project is a Flutter-based responsive UI clone of the **S.Rocks Music App** — specifically the **Home Screen**, built as part of a module evaluation.
 
-## Getting Started
+## 🚀 Features
 
-This project is a starting point for a Flutter application.
+- 🔄 Responsive layout following Figma design
+- 🔥 Firebase Firestore integration (read-only)
+- 📋 Dynamic loading of music service cards (title, icon, image, subtitle)
+- 🧭 Navigation on service tap
+- 🧱 MVVM architecture (Model, ViewModel, View)
+- 🛠️ State management using `Provider`
+- ⚡ Handles async data fetch cleanly
 
-A few resources to get you started if this is your first Flutter project:
+## 🎯 Objective
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+To demonstrate:
+- Firebase integration in Flutter
+- Asynchronous data handling
+- Clean UI development from Figma
+- Flutter architecture best practices
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📲 Download App
+
+[🔗 Click here to download the APK]([https://your-apk-link.com](https://github.com/Deependrakashya/intern_assignment/releases/download/releases/app-release.apk))  
+> _Test the app directly on your Android device._
+
+## 🔧 Setup
+
+```bash
+git clone https://github.com/your-username/srocks-music-clone.git
+cd srocks-music-clone
+flutter pub get
+flutter run
