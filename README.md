@@ -22,6 +22,9 @@ To demonstrate:
 
 ## 📲 Download App
 
+![Screenshot From 2025-05-25 17-51-18](https://github.com/user-attachments/assets/b87bea4b-9939-47e5-a994-eb534756317f)
+![Screenshot From 2025-05-24 11-02-23](https://github.com/user-attachments/assets/a6af236f-19e3-4508-9c72-635e177990e3)
+
 [🔗 Click here to download the APK](https://github.com/Deependrakashya/intern_assignment/releases/tag/releases)  
 > _Test the app directly on your Android device._
 
