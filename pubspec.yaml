@@ -64,8 +64,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - "assets/tilesBgImage/"
-    - "assets/icons/bottomNavIcons/"
+    - "assets/icons/bottom_nav_icons/"
     - "assets/icons/home/"
     - "assets/icons/tiles_icons/"
     - "assets/images/home/"

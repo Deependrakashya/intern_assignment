@@ -50,10 +50,11 @@ class HomeWidget {
     required String description,
     required String imgUrl,
     required String iconUrl,
+    required bool isTablet
   }) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: .7.h),
-      height: 9.h,
+      height:isTablet ? 17.h :9.h,
       width: 100.w,
       decoration: BoxDecoration(
         image: DecorationImage(

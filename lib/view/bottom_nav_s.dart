@@ -23,17 +23,20 @@ class _BottomNavState extends State<BottomNav> {
   int selectedIndex = 0;
   final List<String> _labels = ['Home', 'News', 'TrackBox', 'Projects'];
   final List<String> _icons = [
-    "assets/icons/bottomNavIcons/home.png",
-    "assets/icons/bottomNavIcons/news.png",
-    "assets/icons/bottomNavIcons/trackBox.png",
-    "assets/icons/bottomNavIcons/projects.png",
+    "assets/icons/bottom_nav_icons/home.png",
+    "assets/icons/bottom_nav_icons/news.png",
+    "assets/icons/bottom_nav_icons/trackBox.png",
+    "assets/icons/bottom_nav_icons/projects.png",
   ];
 
   @override
   Widget build(BuildContext context) {
+    bool isTablet = MediaQuery.of(context).size.shortestSide >= 600;
+
     return Scaffold(
       body: screens[selectedIndex],
       bottomNavigationBar: Container(
+        width: isTablet ? 600 : double.infinity,
         padding: EdgeInsets.only(left: 4.w, right: 4.w, bottom: .8.h),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
@@ -61,7 +64,7 @@ class _BottomNavState extends State<BottomNav> {
                     duration: Duration(milliseconds: 300),
                     height: 1.1.h,
 
-                    width: isSelected ? 5.5.w : 0,
+                    width: isSelected ? 15.sp : 0,
                     decoration: BoxDecoration(
                       color: isSelected ? Colors.white : Colors.transparent,
                       borderRadius: BorderRadius.only(

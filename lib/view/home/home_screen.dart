@@ -31,179 +31,199 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    bool isTablet = MediaQuery.of(context).size.shortestSide >= 600;
+
     return Consumer<HomeProvider>(
       builder: (context, provider, child) {
         return Scaffold(
-          body: Column(
-            children: [
-              Stack(
-                children: [
-                  // bg of the top panel
-                  Container(
-                    width: double.infinity,
-                    height: 40.h, // Adjust height as needed
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Color(0xFFa90140), Color(0xFF610024)],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      ),
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(24),
-                        bottomRight: Radius.circular(24),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 0.h,
-                    left: -7.w,
-                    child: Container(
-                      height: 15.h,
-                      child: Image.asset("assets/images/home/circular_.png"),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    right: -10.w,
-                    child: Container(
-                      height: 15.h,
-
-                      child: Image.asset("assets/images/home/piono.png"),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 7.h),
-                    padding: EdgeInsets.symmetric(horizontal: 4.w),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(child: HomeWidget.TextInputField()),
-                            Container(
-                              margin: EdgeInsets.only(left: 3.5.w),
-                              child: Image.asset(
-                                "assets/icons/home/avatar.png",
-                                height: 24.sp,
-                              ),
-                            ),
-                          ],
+          body: SingleChildScrollView(
+            physics: NeverScrollableScrollPhysics(),
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    // bg of the top panel
+                    Container(
+                      height: isTablet ? 50.h : 40.h,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Color(0xFFa90140), Color(0xFF610024)],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
                         ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(height: 6.h),
-
-                            Text(
-                              "Free Demo",
-                              style: TextStyle(
-                                fontSize: 30.sp,
-                                fontWeight: FontWeight.w700,
-                                fontFamily: 'Lobster',
-                                color: AppColors.textWhiteColor,
-                              ),
-                            ),
-                            Text(
-                              "for custom Music Production",
-                              style: TextStyle(
-                                fontSize: 17.sp,
-                                color: AppColors.textWhiteColor,
-                              ),
-                            ),
-                          ],
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(24),
+                          bottomRight: Radius.circular(24),
                         ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    top: 17.h,
-                    left: 37.w,
-                    child: Text(
-                      "Claim your",
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.textWhiteColor,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 2.h, bottom: 2.h),
-                child: Text(
-                  "Hire hand-picked Pros for popular music services",
-                  style: TextStyle(color: AppColors.textWhiteColor),
-                ),
-              ),
-              Expanded(
-                child: ListView.builder(
-                  padding: EdgeInsets.all(0),
-                  itemCount:
-                      provider.isLoading ? 4 : provider.musicServices.length,
-                  // physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    var musicServices = provider.musicServices;
-                    return provider.isLoading
-                        ? Skeletonizer(
-                          effect: ShimmerEffect(
-                            // customize shimmer style
-                            baseColor: Colors.grey.shade300,
-                            highlightColor: const Color.fromARGB(
-                              255,
-                              31,
-                              25,
-                              25,
-                            ),
-                            duration: Duration(seconds: 1),
+                    Positioned(
+                      bottom: 0.h,
+                      left: isTablet ? -2.2.w : -7.w,
+                      child: Container(
+                        height: 15.h,
+                        child: Image.asset("assets/images/home/circular_.png"),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      right: isTablet ? -2.2.w : -10.w,
+                      child: Container(
+                        height: 15.h,
+
+                        child: Image.asset("assets/images/home/piono.png"),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 7.h),
+                      padding: EdgeInsets.symmetric(horizontal: 4.w),
+                      child: Column(
+                        children: [
+                          // top bar with textInput and circular Avataar
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child:
+                                    // Text Input UI
+                                    HomeWidget.TextInputField(),
+                              ),
+                              // avatar icon
+                              Container(
+                                margin: EdgeInsets.only(left: 3.5.w),
+                                child: Image.asset(
+                                  "assets/icons/home/avatar.png",
+                                  height: 24.sp,
+                                ),
+                              ),
+                            ],
                           ),
-                          child: Container(
-                            margin: EdgeInsets.symmetric(horizontal: 2.w),
-                            child: Card(
-                              color: const Color.fromARGB(255, 44, 44, 44),
-                              child: ListTile(
-                                leading: Container(
-                                  height: 8.h,
-                                  width: 10.w,
-                                  padding: EdgeInsets.all(14.sp),
-                                  margin: EdgeInsets.all(14.sp),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.appBgColor,
-                                    borderRadius: BorderRadius.circular(15.sp),
+
+                          // Text on Top panel
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 6.h),
+
+                              Text(
+                                "Free Demo",
+                                style: TextStyle(
+                                  fontSize: 28.sp,
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: 'Lobster',
+                                  color: AppColors.textWhiteColor,
+                                ),
+                              ),
+                              Text(
+                                "for custom Music Production",
+                                style: TextStyle(
+                                  fontSize: 17.sp,
+                                  color: AppColors.textWhiteColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      top: isTablet ? 19.h : 17.h,
+                      left: isTablet ? 43.w : 37.w,
+                      child: Text(
+                        "Claim your",
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.textWhiteColor,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 2.h, bottom: 2.h),
+                  child: Text(
+                    "Hire hand-picked Pros for popular music services",
+                    style: TextStyle(color: AppColors.textWhiteColor),
+                  ),
+                ),
+                Container(
+                  height: isTablet ? 33.h : 45.h,
+                  child: ListView.builder(
+                    padding: EdgeInsets.all(0),
+                    shrinkWrap: true,
+                    itemCount:
+                        provider.isLoading ? 4 : provider.musicServices.length,
+                    // physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      var musicServices = provider.musicServices;
+                      return provider.isLoading
+                          ? Skeletonizer(
+                            effect: ShimmerEffect(
+                              // customize shimmer style
+                              baseColor: Colors.grey.shade300,
+                              highlightColor: const Color.fromARGB(
+                                255,
+                                31,
+                                25,
+                                25,
+                              ),
+                              duration: Duration(seconds: 1),
+                            ),
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 2.w),
+                              child: Card(
+                                color: const Color.fromARGB(255, 44, 44, 44),
+                                child: ListTile(
+                                  leading: Container(
+                                    height: 8.h,
+                                    width: 10.w,
+                                    padding: EdgeInsets.all(14.sp),
+                                    margin: EdgeInsets.all(14.sp),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.appBgColor,
+                                      borderRadius: BorderRadius.circular(
+                                        15.sp,
+                                      ),
+                                    ),
+                                  ),
+
+                                  title: Text("Service Name"),
+                                  subtitle: const Text(
+                                    "Loading description...",
                                   ),
                                 ),
-
-                                title: Text("Service Name"),
-                                subtitle: const Text("Loading description..."),
                               ),
                             ),
-                          ),
-                        )
-                        : GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              CupertinoPageRoute(
-                                builder:
-                                    (context) => NewScreen(
-                                      lastScreenName:
-                                          musicServices[index].title.toString(),
-                                    ),
-                              ),
-                            );
-                          },
-                          child: HomeWidget.ListTile(
-                            title: musicServices[index].title.toString(),
-                            description:
-                                musicServices[index].subTitle.toString(),
-                            imgUrl: musicServices[index].imgUrl.toString(),
-                            iconUrl: musicServices[index].iconUrl.toString(),
-                          ),
-                        );
-                  },
+                          )
+                          : GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                  builder:
+                                      (context) => NewScreen(
+                                        lastScreenName:
+                                            musicServices[index].title
+                                                .toString(),
+                                      ),
+                                ),
+                              );
+                            },
+                            child: HomeWidget.ListTile(
+                              title: musicServices[index].title.toString(),
+                              description:
+                                  musicServices[index].subTitle.toString(),
+                              imgUrl: musicServices[index].imgUrl.toString(),
+                              iconUrl: musicServices[index].iconUrl.toString(),
+                              isTablet: isTablet,
+                            ),
+                          );
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
