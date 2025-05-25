@@ -23,7 +23,10 @@ To demonstrate:
 ## 📲 Download App
 
 ![Screenshot From 2025-05-25 17-51-18](https://github.com/user-attachments/assets/b87bea4b-9939-47e5-a994-eb534756317f)
+[🔗 Tablet Video Preview ](https://res.cloudinary.com/dpcqrofwh/video/upload/v1748177043/tablet_previewmp4_g0mof0.mp4)  
 ![Screenshot From 2025-05-24 11-02-23](https://github.com/user-attachments/assets/a6af236f-19e3-4508-9c72-635e177990e3)
+[🔗 Mobile Video Preview ](https://res.cloudinary.com/dpcqrofwh/video/upload/v1748177061/mobile_preview_xy4om9.mp4)  
+
 
 [🔗 Click here to download the APK](https://github.com/Deependrakashya/intern_assignment/releases/tag/releases)  
 > _Test the app directly on your Android device._
