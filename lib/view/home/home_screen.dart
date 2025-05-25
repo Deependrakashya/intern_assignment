@@ -47,7 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   margin: EdgeInsets.only(top: 2.h, bottom: 2.h),
                   child: Text(
                     "Hire hand-picked Pros for popular music services",
-                    style: TextStyle(color: AppColors.textWhiteColor),
+                    style: TextStyle(
+                      color: AppColors.textWhiteColor,
+                      fontFamily: "Syne",
+                    ),
                   ),
                 ),
 
@@ -83,14 +86,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                 color: const Color.fromARGB(255, 44, 44, 44),
                                 child: ListTile(
                                   leading: Container(
-                                    height: 8.h,
-                                    width: 10.w,
+                                    height: isTablet ? 20 : 8.h,
+                                    width: isTablet ? 20 : 10.w,
                                     padding: EdgeInsets.all(14.sp),
                                     margin: EdgeInsets.all(14.sp),
                                     decoration: BoxDecoration(
                                       color: AppColors.appBgColor,
                                       borderRadius: BorderRadius.circular(
-                                        15.sp,
+                                        isTablet ? 30.sp : 15.sp,
                                       ),
                                     ),
                                   ),

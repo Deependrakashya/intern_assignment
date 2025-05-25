@@ -95,6 +95,7 @@ class HomeWidget {
                         style: TextStyle(
                           color: AppColors.textWhiteColor,
                           fontSize: 18.sp,
+                          fontFamily: "Syne",
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -104,6 +105,8 @@ class HomeWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: AppColors.textWhiteColor,
+                          fontFamily: "Syne",
+
                           fontSize: 15.sp,
                         ),
                       ),
@@ -117,7 +120,7 @@ class HomeWidget {
             margin: EdgeInsets.only(right: 4.w),
             child: Image.asset(
               "assets/icons/tiles_icons/arrow_right.png",
-              height: 1.5.h,
+              height: isTablet ? 3.h : 1.5.h,
             ),
           ),
         ],
