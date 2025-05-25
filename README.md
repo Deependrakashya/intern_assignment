@@ -21,17 +21,16 @@ To demonstrate:
 - Flutter architecture best practices
 
 ## 📲 Download App
-
-![Screenshot From 2025-05-25 17-51-18](https://github.com/user-attachments/assets/b87bea4b-9939-47e5-a994-eb534756317f)
-
-
-[🔗 Tablet Video Preview ](https://res.cloudinary.com/dpcqrofwh/video/upload/v1748177043/tablet_previewmp4_g0mof0.mp4)  
+![image](https://github.com/user-attachments/assets/cabad177-a6e5-4d01-a97c-70a69e620416)
 
 
-![Screenshot From 2025-05-24 11-02-23](https://github.com/user-attachments/assets/a6af236f-19e3-4508-9c72-635e177990e3)
+[🔗 Tablet Video Preview ](https://res.cloudinary.com/dpcqrofwh/video/upload/v1748182037/tablet_previewmp4_g0mof0.mp4)  
 
 
-[🔗 Mobile Video Preview ](https://res.cloudinary.com/dpcqrofwh/video/upload/v1748177061/mobile_preview_xy4om9.mp4)  
+![image](https://github.com/user-attachments/assets/cabad177-a6e5-4d01-a97c-70a69e620416)
+
+
+[🔗 Mobile Video Preview ](https://res.cloudinary.com/dpcqrofwh/video/upload/v1748181597/mobile_preview_xy4om9.mp4)  
 
 
 [🔗 Click here to download the APK](https://github.com/Deependrakashya/intern_assignment/releases/tag/releases)  
